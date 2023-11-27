@@ -17,7 +17,6 @@ struct sListe
 typedef struct sListe Liste;
 void initialise(Liste *l)
 {
-  l = (Liste *)malloc(sizeof(Liste));
   l->prem = NULL;
   l->last = NULL;
 }
@@ -157,6 +156,17 @@ void ajoutEnQueue(int e, Liste *l)
 
 void affectation(Liste *l1, const Liste *l2)
 {
+  if (l2 == NULL)
+  {
+    printf("List is empty");
+    return;
+  }
+  Cellule *tmp = l2->prem;
+  while (tmp != NULL)
+  {
+    ajoutEnQueue(tmp->info, l1);
+    tmp = tmp->suivant;
+  }
 }
 
 int rechercheElement(int e, const Liste *l)
@@ -165,7 +175,7 @@ int rechercheElement(int e, const Liste *l)
   if (estVide(l))
   {
     printf("Can't search in an empty list!");
-    return;
+    return 0;
   }
   tmp = l->prem;
   while (tmp != NULL && tmp->info != e)
@@ -181,7 +191,7 @@ int rechercheElement(int e, const Liste *l)
 
 void insererElement(int e, Liste *l, unsigned int position)
 {
-  Cellule *tmp;
+  Cellule *tmp = l->prem;
   unsigned int num_node = 0, pos = 0;
   while (tmp != NULL)
   {
@@ -194,11 +204,13 @@ void insererElement(int e, Liste *l, unsigned int position)
     ajoutEnQueue(e, l);
   else
   {
+    tmp = l->prem;
     while (tmp != NULL && pos != position - 1)
     {
       tmp = tmp->suivant;
       pos++;
     }
+
     Cellule *new = (Cellule *)malloc(sizeof(Cellule));
     new->info = e;
     new->precedent = NULL;
