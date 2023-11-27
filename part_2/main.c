@@ -46,4 +46,7 @@ int main(void)
     affectation(list2, list);
     printf("New list is\n");
     affichageListeDroiteGauche(list2);
+
+    videListe(list);
+    videListe(list2);
 }
