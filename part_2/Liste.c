@@ -17,6 +17,7 @@ struct sListe
 typedef struct sListe Liste;
 void initialise(Liste *l)
 {
+  l = (Liste *)malloc(sizeof(Liste));
   l->prem = NULL;
   l->last = NULL;
 }
