@@ -55,7 +55,7 @@ void affichageListeGaucheDroite(const Liste *l)
     tmp = l->prem;
     while (tmp != NULL)
     {
-      printf("%d", tmp->info);
+      printf("%d\n", tmp->info);
       tmp = tmp->suivant;
     }
   }
@@ -71,7 +71,7 @@ void affichageListeDroiteGauche(const Liste *l)
     tmp = l->last;
     while (tmp != NULL)
     {
-      printf("%d", tmp->info);
+      printf("%d\n", tmp->info);
       tmp = tmp->precedent;
     }
   }
