@@ -23,4 +23,5 @@ void afficher(Element *liste);
 int taille(Element *liste);
 int jieme(Element *liste, int j);
 Element *ajout_position(Element *liste, int j, int e);
+Element *delete_occ(Element *, int);
 #endif

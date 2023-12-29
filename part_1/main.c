@@ -48,6 +48,8 @@ int main(void)
     head = supprime_debut(head);
     // printing the list aftre deleting first node
     printf("List after deleting first node\n");
+
+    head = delete_occ(head, 2);
     afficher(head);
     return (0);
 }
